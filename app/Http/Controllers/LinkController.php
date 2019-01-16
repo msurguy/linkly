@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Link;
+use Illuminate\Support\Facades\Auth;
 
 class LinkController extends Controller 
 {
@@ -15,7 +16,7 @@ class LinkController extends Controller
    */
   public function index()
   {
-    
+    return Auth::user()->links();
   }
 
   /**
@@ -31,10 +32,11 @@ class LinkController extends Controller
 
       $link = new Link;
       $link->title = $request->title || '';
-      $link->title = $request->title || '';
       $link->destination = $request->link;
 
-
+      if (Auth::user()){
+          $link->user_id = Auth::user()->id;
+      }
 
       return $link;
 

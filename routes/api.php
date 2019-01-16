@@ -17,4 +17,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('links', 'LinkController@create')->name('createlink');
+Route::middleware('auth:api')->post('links', 'LinkController@create')->name('createlink');
+Route::middleware('auth:api')->get('links', 'LinkController@index')->name('user');
