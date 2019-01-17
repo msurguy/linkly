@@ -10,25 +10,6 @@ use Vinkla\Hashids\Facades\Hashids;
 class LinkController extends Controller 
 {
 
-  /**
-   * Display a listing of the resource.
-   *
-   * @return Response
-   */
-  public function index()
-  {
-      if (!Auth::user()){
-          return redirect('/')->with('Please log in to see your links');
-      }
-
-      return Auth::user()->links;
-  }
-
-  /**
-   * Show the form for creating a new resource.
-   *
-   * @return Response
-   */
   public function create(Request $request)
   {
       // Make sure that the link is present, is a valid URL and less than 2048 chars
@@ -75,58 +56,23 @@ class LinkController extends Controller
       //return $link->slug;
   }
 
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @return Response
-   */
-  public function store(Request $request)
+  public function show($link)
   {
-    
-  }
+      $id = Hashids::decode($link);
+      if(!$id) abort(404);
 
-  /**
-   * Display the specified resource.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function show($id)
-  {
-    
-  }
+      $link = Link::find($id)->first();
+      if(!$link) abort(404);
 
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function edit($id)
-  {
-    
-  }
+      // This code is for incrementing the views for the link
+      /*
+       * Potential optimization: move this to some queue event so that the redirect is instant (the view count can be updated later)
+       * */
+      $link->views = $link->views + 1;
+      $link->save();
 
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function update($id)
-  {
-    
-  }
-
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function destroy($id)
-  {
-    
+      // In order for the increment count to work, 302 status is necessary instead of 301
+      return redirect($link->destination, 302);
   }
   
 }

@@ -30,6 +30,6 @@
 
 .center-vertically {
   min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-  min-height: calc(100vh - 80px); /* These two lines are counted as one :-)       */
+  min-height: calc(100vh - 100px); /* These two lines are counted as one :-)       */
   align-items: center;
 }

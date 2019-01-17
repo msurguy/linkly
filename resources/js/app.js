@@ -9,7 +9,11 @@ require('./bootstrap');
 
 import ClipboardJS from 'clipboard';
 
-document.getElementById("longlink").focus();
+const longlinkEl = document.getElementById("longlink");
+
+if (longlinkEl) {
+  longlinkEl.focus();
+}
 
 const shortlinkEl = document.getElementById("shortlink");
 
@@ -24,10 +28,6 @@ clipboard.on('success', function(e) {
   setTimeout(function(){
     document.getElementById('copyAlert').innerHTML = "";
   }, 3000)
-  //const newEl = document.createElement('p');
-// use the innerHTML property for inserting HTML content
-// or append a textNode to the p element
-  //newEl.appendChild(document.createTextNode('Hello World!'));
 });
 
 
