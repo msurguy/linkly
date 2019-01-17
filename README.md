@@ -111,8 +111,14 @@ I thought about the problem from multiple angles when developing this solution. 
 - Users could register on the system to get more value out of the platform
 - Users that are logged in would have a dashboard and be able to see their links and stats about those links
 - The links would be tracked each time they are accessed (increasing the view counter in the DB)
+- For cleaning up expired links with 0 views, I created a cron job that runs every hour and finds entries in DB that satisfy the conditions
 - I didn't pursue scaling for this exercise because I was shooting for a solution that has a balance of design, engineering and business. I left comments in the code about optimizations and could talk aout  scaling options in person. 
 
+Database:
+
+Here is the DB structure of the application:
+
+![DB Structure](docs/DBstructure.png)
 
 To better understand how a link shortener works, I have done some research into how Bitly operates. For example, they use 301 redirect but for testing purposes I used 302 redirect so that I can see the view count increase when accessing links from the same browser.  
 
