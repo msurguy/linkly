@@ -1,3 +1,7 @@
+// Minimal JS for the whole app.
+
+// Side note: this file and resulting JS can be a lot smaller if WebPack is not used and ES5 is used instead.
+
 // Get JS for Bootstrap and its dependencies
 try {
   window.Popper = require('popper.js').default;
