@@ -16,8 +16,13 @@
                                 </div>
                             @endif
                             @if (session('errors'))
-                                <div class="alert alert-success" role="alert">
-                                    {{ session('errors') }}
+                                <div class="alert alert-danger" role="alert">
+                                    Please fix the following errors:
+                                    <ul>
+                                    @foreach (session('errors')->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                    </ul>
                                 </div>
                             @endif
 
