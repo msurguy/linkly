@@ -11,10 +11,10 @@ class CreateLinksTable extends Migration {
 			$table->increments('id');
 			$table->timestamps();
 			$table->string('title', 600);
-			$table->string('slug', 8);
+			$table->string('slug', 8)->nullable();
 			$table->string('destination', 2048);
 			$table->integer('views')->default('0');
-			$table->integer('user_id')->unsigned();
+			$table->integer('user_id')->unsigned()->nullable();
 		});
 	}
 

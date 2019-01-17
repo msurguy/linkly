@@ -8,7 +8,28 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-.navbar-laravel {
-  background-color: #fff;
+.navbar-linkly {
+  background-color: #3086C8;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  a.navbar-brand, .navbar-nav a.nav-link {
+    color: #A0C8FF;
+  }
+
+  a.navbar-brand:hover, .navbar-nav a.nav-link:hover {
+    color: #FFF;
+  }
+}
+
+.fa {
+  font-size: 32px;
+}
+
+.card {
+  box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.5);
+}
+
+.center-vertically {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: calc(100vh - 80px); /* These two lines are counted as one :-)       */
+  align-items: center;
 }

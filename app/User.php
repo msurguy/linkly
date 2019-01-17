@@ -31,26 +31,26 @@ class User extends Authenticatable
 
     public function links()
     {
-        return $this->hasMany('Link');
+        return $this->hasMany('App\Link');
     }
 
     public function payments()
     {
-        return $this->hasMany('Payment');
+        return $this->hasMany('App\Payment');
     }
 
     public function subscriptions()
     {
-        return $this->hasOne('Subscription');
+        return $this->hasOne('App\Subscription');
     }
 
     public function tags()
     {
-        return $this->hasMany('Tag');
+        return $this->hasMany('App\Tag');
     }
 
     public function groups()
     {
-        return $this->belongsToMany('Group');
+        return $this->belongsToMany('App\Group');
     }
 }

@@ -11,12 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-//Route::post('api/links', 'LinkController@create')->name('createlink');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('links', 'LinkController@index')->name('links.view');
+Route::post('links', 'LinkController@create')->name('links.create');
+

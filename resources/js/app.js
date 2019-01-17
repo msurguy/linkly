@@ -9,9 +9,29 @@ require('./bootstrap');
 
 import ClipboardJS from 'clipboard';
 
-new ClipboardJS('.btn');
+document.getElementById("longlink").focus();
 
-window.Vue = require('vue');
+const shortlinkEl = document.getElementById("shortlink");
+
+if(shortlinkEl) {
+  shortlinkEl.select();
+}
+
+const clipboard = new ClipboardJS('.copy-btn');
+
+clipboard.on('success', function(e) {
+  document.getElementById('copyAlert').innerHTML = "Copied to Clipboard!";
+  setTimeout(function(){
+    document.getElementById('copyAlert').innerHTML = "";
+  }, 3000)
+  //const newEl = document.createElement('p');
+// use the innerHTML property for inserting HTML content
+// or append a textNode to the p element
+  //newEl.appendChild(document.createTextNode('Hello World!'));
+});
+
+
+//window.Vue = require('vue');
 
 /**
  * The following block of code may be used to automatically register your
@@ -20,33 +40,33 @@ window.Vue = require('vue');
  *
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
-
-const files = require.context('./', true, /\.vue$/i)
-files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
-Vue.component(
-  'passport-clients',
-  require('./components/passport/Clients.vue').default
-);
-
-Vue.component(
-  'passport-authorized-clients',
-  require('./components/passport/AuthorizedClients.vue').default
-);
-
-Vue.component(
-  'passport-personal-access-tokens',
-  require('./components/passport/PersonalAccessTokens.vue').default
-);
+//
+// const files = require.context('./', true, /\.vue$/i)
+// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+//
+// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+//
+// Vue.component(
+//   'passport-clients',
+//   require('./components/passport/Clients.vue').default
+// );
+//
+// Vue.component(
+//   'passport-authorized-clients',
+//   require('./components/passport/AuthorizedClients.vue').default
+// );
+//
+// Vue.component(
+//   'passport-personal-access-tokens',
+//   require('./components/passport/PersonalAccessTokens.vue').default
+// );
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
-const app = new Vue({
-    el: '#app'
-});
+//
+// const app = new Vue({
+//     el: '#app'
+// });
