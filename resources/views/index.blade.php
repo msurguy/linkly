@@ -90,7 +90,7 @@
                                 <div class="form-row align-items-center">
                                     <div class="col-12">
                                         <div class="input-group">
-                                            <input id="longlink" tabindex="2" type="text" name="link" class="form-control" placeholder="URL to shorten" aria-label="Type or paste link to shorten" aria-describedby="button-addon2">
+                                            <input id="longlink" tabindex="2" type="url" name="link" class="form-control" placeholder="URL to shorten" aria-label="Type or paste link to shorten" aria-describedby="button-addon2">
                                             <div class="input-group-append">
                                                 <button type="submit" class="btn bg-success" type="button" id="button-addon2">Shorten</button>
 
