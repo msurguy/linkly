@@ -24,8 +24,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        // The frequency would need to be adjusted according to the analytics
+        // One possible performance improvement is to batch this process
+        $schedule->command('links:clean 14')->hourly();
     }
 
     /**

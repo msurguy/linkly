@@ -58,11 +58,12 @@ class LinkController extends Controller
 
   public function show($link, Request $request)
   {
+      // Decode the hash and get the ID
       $id = Hashids::decode($link);
-      if(!$id) abort(404);
+      if(!$id) abort(404); // the hash did not result in ID, show 404 page
 
       $link = Link::find($id)->first();
-      if(!$link) abort(404);
+      if(!$link) abort(404); // the link with that ID was not found, show 404 page
 
       // This code is for incrementing the views for the link and for keeping detailed record of the click
       /*
@@ -72,13 +73,12 @@ class LinkController extends Controller
       $link->save();
 
       $stats = new Stats();
-      $stats->ip = $request->ip();
+      $stats->ip = $request->ip(); // Get IP address of the viewer
       $stats->link_id = $link->id;
       $stats->event_type = "viewed";
       $stats->save();
 
-
-      // In order for the increment count to work, 302 status is necessary instead of 301
+      // In order for the increment count to work during testing, 302 status is necessary instead of 301
       return redirect($link->destination, 302);
   }
   
