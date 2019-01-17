@@ -14,7 +14,7 @@ class CreateForeignKeys extends Migration {
 						->onUpdate('no action');
 		});
 		Schema::table('statistics', function(Blueprint $table) {
-			$table->foreign('link_id')->references('id')->on('users')
+			$table->foreign('link_id')->references('id')->on('links')
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});

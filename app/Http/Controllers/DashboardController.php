@@ -24,7 +24,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $links = Auth::user()->links;
+        $links = Auth::user()->links()->paginate(15);
         return view('dashboard', ['links' => $links]);
     }
 }

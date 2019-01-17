@@ -9,6 +9,10 @@
                 <div class="card-body">
                     <a href="{{url('/')}}" class="btn btn-primary mb-3">Create New</a>
 
+                    @if ($links->count() == 0)
+                        <h2 class="text-center">No links here, please <a href="{{ url('/') }}">create</a> one!</h2>
+                    @endif
+
                     <ul class="list-group">
                         @foreach ($links as $link)
                             <li class="list-group-item">
@@ -20,6 +24,11 @@
                         @endforeach
 
                     </ul>
+
+                    <br>
+
+                    {{ $links->links() }}
+
                 </div>
             </div>
         </div>

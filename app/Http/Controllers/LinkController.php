@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Link;
+use App\Stats;
 use Illuminate\Support\Facades\Auth;
 use Vinkla\Hashids\Facades\Hashids;
 
@@ -53,10 +54,9 @@ class LinkController extends Controller
 
       // Return just the slug of the link
       return redirect('/')->with('link', ['destination' => $link->destination, 'slug'=>$link->slug]);
-      //return $link->slug;
   }
 
-  public function show($link)
+  public function show($link, Request $request)
   {
       $id = Hashids::decode($link);
       if(!$id) abort(404);
@@ -64,12 +64,19 @@ class LinkController extends Controller
       $link = Link::find($id)->first();
       if(!$link) abort(404);
 
-      // This code is for incrementing the views for the link
+      // This code is for incrementing the views for the link and for keeping detailed record of the click
       /*
-       * Potential optimization: move this to some queue event so that the redirect is instant (the view count can be updated later)
+       * Potential optimization: move this to some queue event so that the redirect is instant (the view count and the statistics can be updated a few seconds later)
        * */
       $link->views = $link->views + 1;
       $link->save();
+
+      $stats = new Stats();
+      $stats->ip = $request->ip();
+      $stats->link_id = $link->id;
+      $stats->event_type = "viewed";
+      $stats->save();
+
 
       // In order for the increment count to work, 302 status is necessary instead of 301
       return redirect($link->destination, 302);
