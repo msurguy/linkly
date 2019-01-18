@@ -51,30 +51,30 @@
                                 <p class="mt-3">Share the short link:</p>
                                     <div class="row">
                                         <div class="col-2">
-                                            <a class="btn btn-info btn-block" href="http://pinterest.com/share?p="><i class="fa fa-envelope"></i>
+                                            <a class="btn btn-sm btn-info btn-block" href="http://pinterest.com/share?p="><i class="fa fa-envelope"></i>
                                             </a>
                                         </div>
 
                                         <div class="col-2">
-                                            <a class="btn btn-info btn-block" href="http://twitter.com/share?p="><i class="fa fa-twitter"></i>
+                                            <a class="btn btn-sm btn-info btn-block" href="http://twitter.com/share?p="><i class="fa fa-twitter"></i>
                                             </a>
                                         </div>
                                         <div class="col-2">
-                                            <a class="btn btn-info btn-block" href="http://facebook.com/share?p="><i class="fa fa-facebook"></i>
+                                            <a class="btn btn-sm btn-info btn-block" href="http://facebook.com/share?p="><i class="fa fa-facebook"></i>
                                             </a>
                                         </div>
                                         <div class="col-2">
-                                            <a class="btn btn-info btn-block" href="http://linkedin.com/share?p="><i class="fa fa-linkedin-square"></i>
-                                            </a>
-                                        </div>
-
-                                        <div class="col-2">
-                                            <a class="btn btn-info btn-block" href="http://pinterest.com/share?p="><i class="fa fa-pinterest"></i>
+                                            <a class="btn btn-sm btn-info btn-block" href="http://linkedin.com/share?p="><i class="fa fa-linkedin-square"></i>
                                             </a>
                                         </div>
 
                                         <div class="col-2">
-                                            <a class="btn btn-info btn-block" href="http://pinterest.com/share?p="><i class="fa fa-mobile"></i>
+                                            <a class="btn btn-sm btn-info btn-block" href="http://pinterest.com/share?p="><i class="fa fa-pinterest"></i>
+                                            </a>
+                                        </div>
+
+                                        <div class="col-2">
+                                            <a class="btn btn-sm btn-info btn-block" href="http://pinterest.com/share?p="><i class="fa fa-mobile"></i>
                                             </a>
                                         </div>
                                     </div>
