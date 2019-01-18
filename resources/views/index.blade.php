@@ -51,30 +51,30 @@
                                 <p class="mt-3">Share the short link:</p>
                                     <div class="row">
                                         <div class="col-2">
-                                            <a class="btn btn-sm btn-info btn-block" href="http://pinterest.com/share?p="><i class="fa fa-envelope"></i>
+                                            <a class="btn btn-sm btn-info btn-block" href="mailto:?body={{urlencode(url(session('link')['slug']))}}"><i class="fa fa-envelope"></i>
                                             </a>
                                         </div>
 
                                         <div class="col-2">
-                                            <a class="btn btn-sm btn-info btn-block" href="http://twitter.com/share?p="><i class="fa fa-twitter"></i>
+                                            <a class="btn btn-sm btn-info btn-block" href="https://twitter.com/intent/tweet?url={{urlencode(url(session('link')['slug']))}}&text=Link"><i class="fa fa-twitter"></i>
                                             </a>
                                         </div>
                                         <div class="col-2">
-                                            <a class="btn btn-sm btn-info btn-block" href="http://facebook.com/share?p="><i class="fa fa-facebook"></i>
+                                            <a class="btn btn-sm btn-info btn-block" href="https://www.facebook.com/sharer.php?u={{urlencode(url(session('link')['slug']))}}"><i class="fa fa-facebook"></i>
                                             </a>
                                         </div>
                                         <div class="col-2">
-                                            <a class="btn btn-sm btn-info btn-block" href="http://linkedin.com/share?p="><i class="fa fa-linkedin-square"></i>
-                                            </a>
-                                        </div>
-
-                                        <div class="col-2">
-                                            <a class="btn btn-sm btn-info btn-block" href="http://pinterest.com/share?p="><i class="fa fa-pinterest"></i>
+                                            <a class="btn btn-sm btn-info btn-block" href="https://www.linkedin.com/shareArticle?mini=true&url={{urlencode(url(session('link')['slug']))}}&title=link"><i class="fa fa-linkedin-square"></i>
                                             </a>
                                         </div>
 
                                         <div class="col-2">
-                                            <a class="btn btn-sm btn-info btn-block" href="http://pinterest.com/share?p="><i class="fa fa-mobile"></i>
+                                            <a class="btn btn-sm btn-info btn-block" href="http://pinterest.com/pin/create/link/?url={{urlencode(url(session('link')['slug']))}}"><i class="fa fa-pinterest"></i>
+                                            </a>
+                                        </div>
+
+                                        <div class="col-2">
+                                            <a class="btn btn-sm btn-info btn-block" href="sms:999?body={{urlencode(url(session('link')['slug']))}}"><i class="fa fa-mobile"></i>
                                             </a>
                                         </div>
                                     </div>
